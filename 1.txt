@@ -1,2 +1,6 @@
 nasyawa 
+<<<<<<< HEAD
 halo
+=======
+mantap 
+>>>>>>> 9514dc6289fd20d00006c9adda63824ae93b2b37
