@@ -69,3 +69,28 @@ window.addEventListener('scroll', () => {
         }
     });
 });
+
+// Reveal page sections as they enter the viewport
+const revealElements = document.querySelectorAll(
+    '.stats .stat-box, .section-title, .feature-box, .game-box, .step, .team-box, .cta'
+);
+
+if ('IntersectionObserver' in window && revealElements.length) {
+    document.documentElement.classList.add('js-motion');
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.15
+    });
+
+    revealElements.forEach(element => {
+        element.classList.add('reveal');
+        revealObserver.observe(element);
+    });
+}

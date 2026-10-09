@@ -255,6 +255,76 @@ body {
     mix-blend-mode: multiply;
 }
 
+/* ========== ENTRANCE ANIMATIONS ========== */
+.hero .content > *,
+.hero .image {
+    animation: rise-in 0.7s both;
+}
+
+.hero .content > *:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.hero .content > *:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.hero .content > *:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.hero .content > *:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.hero .image {
+    animation-delay: 0.25s;
+}
+
+.js-motion .reveal {
+    opacity: 0;
+    translate: 0 2.4rem;
+    transition: opacity 0.65s ease, translate 0.65s ease;
+}
+
+.js-motion .reveal.is-visible {
+    opacity: 1;
+    translate: 0 0;
+}
+
+.js-motion .stats .stat-box:nth-child(2),
+.js-motion .features .feature-box:nth-child(2),
+.js-motion .games .game-box:nth-child(2),
+.js-motion .how-it-works .step:nth-child(2),
+.js-motion .team .team-box:nth-child(2) {
+    transition-delay: 0.12s;
+}
+
+.js-motion .stats .stat-box:nth-child(3),
+.js-motion .features .feature-box:nth-child(3),
+.js-motion .games .game-box:nth-child(3),
+.js-motion .how-it-works .step:nth-child(3),
+.js-motion .team .team-box:nth-child(3) {
+    transition-delay: 0.24s;
+}
+
+.js-motion .stats .stat-box:nth-child(4),
+.js-motion .team .team-box:nth-child(4) {
+    transition-delay: 0.36s;
+}
+
+@keyframes rise-in {
+    from {
+        opacity: 0;
+        translate: 0 2.4rem;
+    }
+
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
 /* ========== STATS ========== */
 .stats {
     padding: 0 5% 6rem;
@@ -875,5 +945,16 @@ body {
 
     .stats .container {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
     }
 }
